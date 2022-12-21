@@ -16,7 +16,6 @@ export default function Detail({ navigation }) {
         <TextInput placeholder="Abduldul@gmail.com" style={styles.input} />
         {/* <Icon name="md-bicycle" /> */}
         <AntDesign name="stepforward" size={50} color="black" />
-        <MaterialCommunityIcons name="done" size={50} color="black" />
       </View>
     </ScrollView>
   );

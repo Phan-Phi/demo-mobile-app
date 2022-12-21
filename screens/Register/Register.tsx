@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -8,8 +8,11 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import CheckBox from "@react-native-community/checkbox";
 
 export default function Register() {
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -51,7 +54,14 @@ export default function Register() {
         >
           <View>
             <Text>
-              <Text style={{ fontWeight: "600" }}>Remember Me</Text>
+              <Text style={{ fontWeight: "600" }}>
+                {/* <CheckBox
+                  disabled={false}
+                  value={toggleCheckBox}
+                  onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                /> */}
+                Remember Me
+              </Text>
             </Text>
           </View>
           <View>
@@ -79,15 +89,38 @@ export default function Register() {
         <TouchableOpacity
           style={[styles.containedbutton, { marginBottom: 21 }]}
         >
-          <Text style={styles.textButtonContained}>Login with Facebook</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Icon name="f" size={18} color="white" />
+            <Text style={styles.textButtonContained}>Login with Facebook</Text>
+            <Text></Text>
+          </View>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.outlinedbutton}>
-          <Text style={styles.textButtonOutlined}>Login with Google</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Icon name="google" size={18} color="#2F89FC" />
+            <Text style={styles.textButtonOutlined}>Login with Google</Text>
+            <Text></Text>
+          </View>
         </TouchableOpacity>
 
         <Text style={[styles.text, { marginVertical: 40 }]}>
-          Don't have an account? Sign Up
+          Don't have an account?{" "}
+          <Text style={{ color: "#2F89FC" }}>Sign Up</Text>
         </Text>
       </View>
     </ScrollView>
@@ -119,7 +152,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   textButtonOutlined: {
-    color: "rgba(0, 0, 0, 0.6)",
+    color: "#2F89FC",
     fontSize: 16,
     fontWeight: "600",
   },
@@ -127,6 +160,7 @@ const styles = StyleSheet.create({
   containedbutton: {
     alignItems: "center",
     paddingVertical: 10,
+    paddingHorizontal: 20,
 
     borderRadius: 5,
     borderWidth: 1,
@@ -137,6 +171,7 @@ const styles = StyleSheet.create({
   outlinedbutton: {
     alignItems: "center",
     paddingVertical: 10,
+    paddingHorizontal: 20,
 
     borderRadius: 5,
     borderWidth: 1,
@@ -152,7 +187,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.4)",
     height: 50,
     borderRadius: 10,

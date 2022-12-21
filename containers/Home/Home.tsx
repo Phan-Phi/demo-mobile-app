@@ -37,7 +37,7 @@ export default function Home({ navigation }) {
           <Pressable
             style={styles.button}
             onPress={() => {
-              navigation.navigate("Detail");
+              navigation.navigate("Register");
             }}
           >
             <Text style={styles.text2}>Get Started</Text>
