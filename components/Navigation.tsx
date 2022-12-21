@@ -1,40 +1,24 @@
-import React from "react";
-import { useWindowDimensions } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../containers/Home/Home";
-import Register from "../screens/Register/Register";
+import { createStackNavigator } from "@react-navigation/stack";
+import WelCome from "../containers/Home/WelCome";
+import SignUp from "./SignUp";
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-export default function Navigation() {
+function MyStack() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-      // screenOptions={({ route }) => {
-      //   tabBarIcon: ({ focused: boolean, colour: string, size: number }) => {
-      //     console.log("🚀 ~ file: App.js:21 ~ App ~ focused", focused);
-      //     let iconName;
-      //     if (route.name === "Home") {
-      //       iconName = focused ? "ios-home" : "ios-home-outline";
-      //     }
-      //     return <Ionic name={iconName} size={size} colour={colour} />;
-      //   };
-      // }}
-      // screenOptions={({ route }) => ({
-      //   tabBarIcon: ({ focused: boolean, color: string, size: number }) => {
-      //     console.log("🚀 ~ file: App.js:31 ~ App ~ focused", focused);
-      //     let iconName;
-      //     if (route.name === "Home") {
-      //       iconName = focused ? "ios-home" : "ios-home-outline";
-      //     }
-      //     return <Ionic name={iconName} size={30} color={"red"} />;
-      //   },
-      // })}
-      >
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Register" component={Register} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="WelCome" component={WelCome} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+      {/* <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Settings" component={Settings} /> */}
+    </Stack.Navigator>
   );
 }
+
+export default MyStack;

@@ -7,123 +7,127 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import CheckBox from "@react-native-community/checkbox";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { NativeBaseProvider } from "native-base";
 
 export default function Register() {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   return (
-    <ScrollView style={styles.container}>
-      <View>
-        <Text style={styles.title}>Hi, Welcome Back! 👋</Text>
-      </View>
-
-      <View style={{ marginBottom: 60, marginTop: 25 }}>
-        <View style={{ marginBottom: 20 }}>
-          <Text style={styles.labeInput}>Email</Text>
-          <View style={styles.sectionStyle}>
-            <TextInput
-              style={{ flex: 1 }}
-              placeholder="example@gmail.com"
-              underlineColorAndroid="transparent"
-            />
-          </View>
-        </View>
-
+    <NativeBaseProvider>
+      <ScrollView style={styles.container}>
         <View>
-          <Text style={styles.labeInput}>Password</Text>
-          <View style={styles.sectionStyle}>
-            <Text>
-              <Icon name="eye" size={18} color="black" />
-            </Text>
-            <TextInput
-              style={{ flex: 1 }}
-              placeholder="Enter Your Password"
-              underlineColorAndroid="transparent"
-            />
-          </View>
+          <Text style={styles.title}>Hi, Welcome Back! 👋</Text>
         </View>
 
-        <View
-          style={{
-            paddingVertical: 20,
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
+        <View style={{ marginBottom: 60, marginTop: 25 }}>
+          <View style={{ marginBottom: 20 }}>
+            <Text style={styles.labeInput}>Email</Text>
+            <View style={styles.sectionStyle}>
+              <TextInput
+                style={{ flex: 1 }}
+                placeholder="example@gmail.com"
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </View>
+
           <View>
-            <Text>
-              <Text style={{ fontWeight: "600" }}>
-                {/* <CheckBox
+            <Text style={styles.labeInput}>Password</Text>
+            <View style={styles.sectionStyle}>
+              <Text>
+                <Icon name="eye" size={18} color="black" />
+              </Text>
+              <TextInput
+                style={{ flex: 1 }}
+                placeholder="Enter Your Password"
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </View>
+
+          <View
+            style={{
+              paddingVertical: 20,
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View>
+              <Text>
+                <Text style={{ fontWeight: "600" }}>
+                  {/* <CheckBox
                   disabled={false}
                   value={toggleCheckBox}
                   onValueChange={(newValue) => setToggleCheckBox(newValue)}
                 /> */}
-                Remember Me
+                  Remember Me
+                </Text>
               </Text>
-            </Text>
+            </View>
+            <View>
+              <Text style={{ color: "#E86969" }}>Forgot Password?</Text>
+            </View>
           </View>
-          <View>
-            <Text style={{ color: "#E86969" }}>Forgot Password?</Text>
-          </View>
+
+          <TouchableOpacity style={styles.containedbutton}>
+            <Text style={styles.textButtonContained}>Login</Text>
+          </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.containedbutton}>
-          <Text style={styles.textButtonContained}>Login</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "400",
-            textAlign: "center",
-            marginBottom: 33,
-          }}
-        >
-          Or With
-        </Text>
-
-        <TouchableOpacity
-          style={[styles.containedbutton, { marginBottom: 21 }]}
-        >
-          <View
+        <View>
+          <Text
             style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "100%",
+              fontSize: 18,
+              fontWeight: "400",
+              textAlign: "center",
+              marginBottom: 33,
             }}
           >
-            <Icon name="f" size={18} color="white" />
-            <Text style={styles.textButtonContained}>Login with Facebook</Text>
-            <Text></Text>
-          </View>
-        </TouchableOpacity>
+            Or With
+          </Text>
 
-        <TouchableOpacity style={styles.outlinedbutton}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "100%",
-            }}
+          <TouchableOpacity
+            style={[styles.containedbutton, { marginBottom: 21 }]}
           >
-            <Icon name="google" size={18} color="#2F89FC" />
-            <Text style={styles.textButtonOutlined}>Login with Google</Text>
-            <Text></Text>
-          </View>
-        </TouchableOpacity>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <Icon name="f" size={18} color="white" />
+              <Text style={styles.textButtonContained}>
+                Login with Facebook
+              </Text>
+              <Text></Text>
+            </View>
+          </TouchableOpacity>
 
-        <Text style={[styles.text, { marginVertical: 40 }]}>
-          Don't have an account?{" "}
-          <Text style={{ color: "#2F89FC" }}>Sign Up</Text>
-        </Text>
-      </View>
-    </ScrollView>
+          <TouchableOpacity style={styles.outlinedbutton}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <Icon name="google" size={18} color="#2F89FC" />
+              <Text style={styles.textButtonOutlined}>Login with Google</Text>
+              <Text></Text>
+            </View>
+          </TouchableOpacity>
+
+          <Text style={[styles.text, { marginVertical: 40 }]}>
+            Don't have an account?{" "}
+            <Text style={{ color: "#2F89FC" }}>Sign Up</Text>
+          </Text>
+        </View>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 }
 
